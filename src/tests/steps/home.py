@@ -5,8 +5,8 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
 chrome_options = Options()
-chrome_options.add_argument("--start-maximized")
-driver = webdriver.Chrome(chrome_options=chrome_options)
+chrome_options.add_argument("--window-size=1920,1200")
+driver = webdriver.Chrome(options=chrome_options)
 driver.implicitly_wait(15)
 
 page = home.HomePage(driver)

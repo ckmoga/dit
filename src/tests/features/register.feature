@@ -6,7 +6,7 @@ So that I can use the system to help manage my export business
 
 Scenario: Successful registration
 Given I have navigated to the registration page
-When I register with charles.moga@gmail.com and assignmenT18
+When I register with charles.moga1@gmail.com and assignmenT18
 Then I should see a confirmation message
 
 Scenario Outline: Unsuccessful attempt to register
