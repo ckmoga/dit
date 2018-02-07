@@ -42,7 +42,7 @@ def step_impl(context,email,password,password2):
     page.password1 = password
     page.password2 = password2
 
-    driver.execute_script("window.scrollTo(0, 1200)") #bring button to view
+    driver.execute_script("window.scrollTo(0, 1200)") #make register button and terms checkbox visible
     page.terms.click()
     page.button.click()
 
@@ -57,7 +57,7 @@ def step_impl(context,email,email2):
     page.password1 = 'assignmenT18'
     page.password2 = 'assignmenT18'
 
-    driver.execute_script("window.scrollTo(0, 1200)") #bring button to view
+    driver.execute_script("window.scrollTo(0, 1200)") #make register button and terms checkbox visible
     page.terms.click()
     page.button.click()
 
