@@ -8,3 +8,4 @@ class RegistrationPage(PageObject):
     password2  = PageElement(name="password2")
     terms      = PageElement(id_="id_terms_agreed")
     button     = PageElement(css="#signup_form > button")
+    error      = PageElement(css="#signup_form > li.input-field-container.has-error > ul > li:nth-child(1)")

@@ -24,11 +24,9 @@ def step_impl(context, email, password):
     page.email2 = email
     page.password1 = password
     page.password2 = password
-    page.terms.click()
-
     driver.execute_script("window.scrollTo(0, 1200)") #bring button to view
+    page.terms.click()
     page.button.click()
-
 
 @then('I should see a confirmation message')
 def step_impl(context):
@@ -39,8 +37,36 @@ def step_impl(context):
 
 @when('I register with {email},{password},{password2}')
 def step_impl(context,email,password,password2):
-    url = config.get_property('general','home_url')
+    page.email = email
+    page.email2 = email
+    page.password1 = password
+    page.password2 = password2
 
-@then('I should see {error}')
+    driver.execute_script("window.scrollTo(0, 1200)") #bring button to view
+    page.terms.click()
+    page.button.click()
+
+@then('I should see error {error}')
 def step_impl(context, error):
+    assert page.error.text == error
+
+@when('I register with {email},{email2}')
+def step_impl(context,email,email2):
+    page.email = email
+    page.email2 = email2
+    page.password1 = 'assignmenT18'
+    page.password2 = 'assignmenT18'
+
+    driver.execute_script("window.scrollTo(0, 1200)") #bring button to view
+    page.terms.click()
+    page.button.click()
+
+@then('the form will not be submitted')
+def step_impl(context):
+    url = 'https://sso.trade.great.gov.uk/accounts/signup/?next=https://www.great.gov.uk/triage/'
+    assert driver.current_url == url
+
+@then('I should see the error {error} displayed')
+def step_impl(context, error):
+    assert page.error.text == error
     driver.quit()
